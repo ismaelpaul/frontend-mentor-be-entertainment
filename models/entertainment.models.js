@@ -10,11 +10,9 @@ const entertainmentSchema = mongoose.Schema(
 			trending: {
 				small: {
 					type: String,
-					required: [true, 'Small trending thumbnail is missing'],
 				},
 				large: {
 					type: String,
-					required: [true, 'Large trending thumbnail is missing'],
 				},
 			},
 			regular: {
@@ -43,6 +41,14 @@ const entertainmentSchema = mongoose.Schema(
 		rating: {
 			type: String,
 			required: [true, 'Rating is missing'],
+		},
+		isTrending: {
+			type: Boolean,
+			required: [true, 'Trending is missing'],
+		},
+		isBookmarked: {
+			type: Boolean,
+			required: [true, 'Bookmarked is missing'],
 		},
 	},
 	{
