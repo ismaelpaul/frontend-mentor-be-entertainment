@@ -9,13 +9,13 @@ exports.getBookmarks = asyncHandler(async (req, res) => {
 });
 
 exports.addBookmark = asyncHandler(async (req, res) => {
-	const { title, thumbnail, year, category, rating } = req.body;
+	const { title, thumbnail, year, category, rating, isTrending, isBookmarked } =
+		req.body;
 
 	if (!title || !thumbnail || !year || !category || !rating) {
 		res.status(400);
 		throw new Error('Some field is missing');
 	}
-
 	const bookmark = await Bookmark.create({
 		user: req.user.id,
 		title,
@@ -23,6 +23,8 @@ exports.addBookmark = asyncHandler(async (req, res) => {
 		year,
 		category,
 		rating,
+		isTrending,
+		isBookmarked: true,
 	});
 
 	res.status(201).json(bookmark);
