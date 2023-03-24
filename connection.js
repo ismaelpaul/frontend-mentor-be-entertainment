@@ -5,7 +5,7 @@ const { PORT = 9090 } = process.env;
 
 //Connect DB and start server
 mongoose
-	.set('strictQuery', true)
+
 	.connect(process.env.MONGO_URI)
 	.then(() => {
 		app.listen(PORT, (err) => {
