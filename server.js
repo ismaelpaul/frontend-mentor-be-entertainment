@@ -7,7 +7,10 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
-const whitelist = ['http://localhost:5173', 'http://127.0.0.1:5173'];
+const whitelist = [
+	'http://localhost:5173',
+	'https://entertainment-webb.netlify.app',
+];
 const corsOptions = {
 	origin: function (origin, callback) {
 		if (whitelist.indexOf(origin) !== -1) {
